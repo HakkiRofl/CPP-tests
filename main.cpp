@@ -8,6 +8,19 @@ int sub(int a, int b);
 static int pow(int a, int b);
 int return_pow(int a, int b);
 
+// Объявление класса
+class staticClass {
+public:
+    static size_t counter;
+    staticClass() {
+        counter++;
+    };
+    ~staticClass() {};
+};
+
+size_t staticClass::counter = 0;
+
+
 int main()
 {
     int a = 100;
@@ -23,6 +36,10 @@ int main()
     a = 2;
     b = -3;
     printf("a = %i, b = %i, pow = %f\n", a, b, 1.0 / pow(a, b));
+
+    staticClass *c = new staticClass[12];
+    printf("static Counter in class: %i\n", staticClass::counter);
+    delete[] c;
 
 }
 
